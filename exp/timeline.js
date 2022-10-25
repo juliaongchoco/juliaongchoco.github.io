@@ -48,6 +48,7 @@ let key_trial = function(freq, condition){
     type: 'jo-play-tone',
     freq: freq,
     duration: 250,
+    condition: condition,
     data: {
         subj_id: subj_name,
         test_part: 'key_trial',
@@ -58,11 +59,33 @@ let key_trial = function(freq, condition){
   return block;
 };
 
+let intro_audio = {
+  type: 'audio-keyboard-response',
+  stimulus: 'images/intro_audio.mp3',
+  choices: jsPsych.NO_KEYS,
+  trial_ends_after_audio: true,
+  data: {
+      subj_id: subj_name,
+      test_part: 'fixation'
+  }
+};
+
+let test_audio = {
+  type: 'audio-keyboard-response',
+  stimulus: 'images/test_audio.mp3',
+  choices: jsPsych.NO_KEYS,
+  trial_ends_after_audio: true,
+  data: {
+      subj_id: subj_name,
+      test_part: 'fixation'
+  }
+};
+
 let test_prompt = {
   type: 'html-keyboard-response',
   stimulus: '<div>Did you hear this tone?</div>',
   choices: jsPsych.NO_KEYS,
-  trial_duration: 1000,
+  trial_duration: 2000,
   data: {
       subj_id: subj_name,
       test_part: 'fixation'
@@ -77,9 +100,20 @@ let resp_trial = function(freq, condition){
     response_ends_trial: true,
     data: {
         subj_id: subj_name,
-        test_part: 'key_trial',
+        test_part: 'resp_trial',
         freq: freq,
         condition: condition
+    },
+    on_finish: function(data){
+      data.is_correct = false
+      if (data.key_press==89 & data.condition=="right"){
+        data.is_correct = true
+      } else if (data.key_press==78 & data.condition=="wrong"){
+        data.is_correct = true
+      } else if (data.key_press==78 & data.condition=="avg"){
+        data.is_correct = true
+      }
+      saveData(subj_name, jsPsych.data.get().csv());
     }
   }
   return block;

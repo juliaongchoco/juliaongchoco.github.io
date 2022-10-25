@@ -1,4 +1,4 @@
-let expt_name = "time";
+let expt_name = "";
 let subj_id = prompt("Please enter your participant ID:", "");
 let subj_name = expt_name + "_" + subj_id.toString();
 let consent_duration = 10;

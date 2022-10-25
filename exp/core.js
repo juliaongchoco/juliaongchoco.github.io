@@ -3,7 +3,7 @@ function startExpt() {
     let start_clock = performance.now();
     jsPsych.init({
         timeline: timeline,
-        // show_progress_bar: true, 
+        show_progress_bar: true, 
         // preload_images: std_images,
         on_interaction_data_update: function (data) {
             viewport_width = get_viewport_size().width;

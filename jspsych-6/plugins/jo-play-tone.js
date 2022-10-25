@@ -17,12 +17,18 @@ jsPsych.plugins["jo-play-tone"] = (function() {
         type: jsPsych.plugins.parameterType.INT, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
         default: undefined
       },
+      condition: {
+        type: jsPsych.plugins.parameterType.STRING, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
+        default: undefined
+      },
     }
   }
 
   plugin.trial = function(display_element, trial) {
 
     // display_element.innerHTML = "<img src='images/soundIcon.png'></img>"
+
+    console.log(trial.freq, trial.condition)
 
     var audioContext = new AudioContext();
     var gainNode = audioContext.createGain();

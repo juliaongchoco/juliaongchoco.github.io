@@ -56,12 +56,16 @@ for (i=0; i<conditions.length; i++){
 
   shuffle(tone_freqs)
 
-  timeline.push(intro_audio);
+  timeline.push(intro_prompt);
 
   // PLAY TRIAD
   for (n=0; n<3; n++){
     timeline.push(key_trial(tone_freqs[n], conditions[i]));
   }
+
+timeline.push(intro_trial);
+
+timeline.push(test_prompt);
 
   // PLAY TEST
   if (conditions[i]=='right'){
@@ -74,8 +78,7 @@ for (i=0; i<conditions.length; i++){
   }
 
   console.log("printing test tone", test_tone, conditions[i])
-  
-  timeline.push(test_prompt);
+
   timeline.push(key_trial(test_tone, conditions[i]));
 
   // RESPONSE

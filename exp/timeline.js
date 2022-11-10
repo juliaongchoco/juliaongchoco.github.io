@@ -92,7 +92,7 @@ let intro_prompt = {
   }
 };
 
-let intro_trial = function(freq, condition){
+let intro_trial = function(){
   var block = {
     type: 'html-keyboard-response',
     stimulus: "Each tone is pleasant.<br>Y=YES, N=NO",
@@ -100,9 +100,7 @@ let intro_trial = function(freq, condition){
     response_ends_trial: true,
     data: {
         subj_id: subj_name,
-        test_part: 'resp_trial',
-        freq: freq,
-        condition: condition
+        test_part: 'resp_trial'
     },
   }
   return block;

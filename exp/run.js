@@ -63,9 +63,10 @@ for (i=0; i<conditions.length; i++){
     timeline.push(key_trial(tone_freqs[n], conditions[i]));
   }
 
-timeline.push(intro_trial());
+  console.log("testing")
+  timeline.push(intro_trial());
 
-timeline.push(test_prompt);
+  timeline.push(test_prompt);
 
   // PLAY TEST
   if (conditions[i]=='right'){

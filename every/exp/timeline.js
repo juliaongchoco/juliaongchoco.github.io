@@ -83,7 +83,7 @@ let test_audio = {
 
 let intro_prompt = {
   type: 'html-keyboard-response',
-  stimulus: '<div>Each tone is pleasant.</div>',
+  stimulus: '<div>Every tone is pleasant.</div>',
   choices: jsPsych.NO_KEYS,
   trial_duration: 2000,
   data: {
@@ -95,7 +95,7 @@ let intro_prompt = {
 let intro_trial = function(){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Each tone is pleasant.<br>Y=YES, N=NO",
+    stimulus: "Every tone is pleasant.<br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
     data: {

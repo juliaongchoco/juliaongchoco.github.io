@@ -59,14 +59,14 @@ for (i=0; i<conditions.length; i++){
 
   shuffle(tone_freqs)
 
-  timeline.push(intro_prompt(adjective_list));
+  timeline.push(intro_prompt(adjective));
 
   // PLAY TRIAD
   for (n=0; n<3; n++){
     timeline.push(key_trial(tone_freqs[n], conditions[i]));
   }
 
-  timeline.push(intro_trial(adjective_list));
+  timeline.push(intro_trial(adjective));
 
   timeline.push(test_prompt);
 

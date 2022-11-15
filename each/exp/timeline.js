@@ -81,26 +81,31 @@ let test_audio = {
   }
 };
 
-let intro_prompt = {
-  type: 'html-keyboard-response',
-  stimulus: '<div>Each tone is pleasant.</div>',
-  choices: jsPsych.NO_KEYS,
-  trial_duration: 2000,
-  data: {
-      subj_id: subj_name,
-      test_part: 'fixation'
-  }
-};
-
-let intro_trial = function(){
+let intro_prompt = function(adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Each tone is pleasant.<br>Y=YES, N=NO",
+    stimulus: '<div>Each tone is' + adjective + '.</div>',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 2000,
+    data: {
+        subj_id: subj_name,
+        test_part: 'fixation',
+        adjective: adjective
+    },
+  }
+  return block;
+};
+
+let intro_trial = function(adjective){
+  var block = {
+    type: 'html-keyboard-response',
+    stimulus: "Each tone is " + adjective + ".<br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
     data: {
         subj_id: subj_name,
-        test_part: 'resp_trial'
+        test_part: 'resp_trial',
+        adjective: adjective
     },
   }
   return block;

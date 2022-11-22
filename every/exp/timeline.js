@@ -5,7 +5,7 @@ let instructions1 = {
     type: 'jo-html-keyboard-response',
     wait_duration: 1000,
     choices: ['space'],
-    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will hear 3 tones, then you will hear a fourth.<br>Your task will be to identify if the fourth tone was part of the initial 3 tones.</div>",
+    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will be asked whether you agree with a sentence.</br>Then you will be asked some additional questions.</div>",
     prompt: "Press SPACE to continue.",
     data: {
         subj_id: subj_name,
@@ -81,26 +81,31 @@ let test_audio = {
   }
 };
 
-let intro_prompt = {
-  type: 'html-keyboard-response',
-  stimulus: '<div>Every tone is pleasant.</div>',
-  choices: jsPsych.NO_KEYS,
-  trial_duration: 2000,
-  data: {
-      subj_id: subj_name,
-      test_part: 'fixation'
-  }
-};
-
-let intro_trial = function(){
+let intro_prompt = function(adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Every tone is pleasant.<br>Y=YES, N=NO",
+    stimulus: '<div>Every tone is ' + adjective + '.</div>',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 2000,
+    data: {
+        subj_id: subj_name,
+        test_part: 'fixation',
+        adjective: adjective
+    },
+  }
+  return block;
+};
+
+let intro_trial = function(adjective){
+  var block = {
+    type: 'html-keyboard-response',
+    stimulus: "Every tone was " + adjective + ".<br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
     data: {
         subj_id: subj_name,
-        test_part: 'resp_trial'
+        test_part: 'resp_trial',
+        adjective: adjective
     },
   }
   return block;

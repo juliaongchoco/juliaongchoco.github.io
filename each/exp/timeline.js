@@ -5,7 +5,7 @@ let instructions1 = {
     type: 'jo-html-keyboard-response',
     wait_duration: 1000,
     choices: ['space'],
-    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will hear 3 sounds and be aksed whether you agree with a sentence.</br>Then you might be asked some additional questions.</div>",
+    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will be asked whether you agree with a sentence.</br>Then you will be asked some additional questions.</div>",
     prompt: "Press SPACE to continue.",
     data: {
         subj_id: subj_name,
@@ -99,7 +99,7 @@ let intro_prompt = function(adjective){
 let intro_trial = function(adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Each tone is " + adjective + ".<br>Y=YES, N=NO",
+    stimulus: "Each tone was " + adjective + ".<br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
     data: {

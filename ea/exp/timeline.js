@@ -6,7 +6,7 @@ let instructions1 = {
     wait_duration: 1000,
     choices: ['space'],
     stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will be asked whether you agree with a sentence.</br>Then you will be asked some additional questions.</div>",
-    prompt: "Press SPACE to continue.",
+    prompt: "Press SPACE to begin.",
     data: {
         subj_id: subj_name,
         test_part: 'instruct_prompt'

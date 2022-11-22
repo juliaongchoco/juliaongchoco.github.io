@@ -5,7 +5,7 @@ let instructions1 = {
     type: 'jo-html-keyboard-response',
     wait_duration: 1000,
     choices: ['space'],
-    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will hear 3 tones, then you will hear a fourth.<br>Your task will be to identify if the fourth tone was part of the initial 3 tones.</div>",
+    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will hear 3 sounds and be aksed whether you agree with a sentence.</br>Then you might be asked some additional questions.</div>",
     prompt: "Press SPACE to continue.",
     data: {
         subj_id: subj_name,

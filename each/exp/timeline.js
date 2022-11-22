@@ -84,7 +84,7 @@ let test_audio = {
 let intro_prompt = function(adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: '<div>Each tone is' + adjective + '.</div>',
+    stimulus: '<div>Each tone is ' + adjective + '.</div>',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
     data: {

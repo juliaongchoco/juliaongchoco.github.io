@@ -5,7 +5,7 @@ let instructions1 = {
     type: 'jo-html-keyboard-response',
     wait_duration: 1000,
     choices: ['space'],
-    stimulus: "<div style='margin: auto 0'><p>In the main experiment, you will hear different sounds.</div>",
+    stimulus: "<div style='margin: auto 0'><p>In the main experiment, you will hear a sound like this.</div>",
     prompt: "Press SPACE for a sample.",
     data: {
         subj_id: subj_name,
@@ -17,7 +17,7 @@ let instructions2 = {
   type: 'jo-html-keyboard-response',
   wait_duration: 1000,
   choices: ['space'],
-  stimulus: "<div style='margin: auto 0'><p>You will then read sentences describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with these opinions.<br>Then an additional question will follow.</div>",
+  stimulus: "<div style='margin: auto 0'><p>In a trial, you will then read a sentence describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with this opinion.<br>Then an additional question will follow.</div>",
   prompt: "Press SPACE to continue.",
   data: {
       subj_id: subj_name,
@@ -29,7 +29,7 @@ let instructions3 = {
   type: 'jo-html-keyboard-response',
   wait_duration: 1000,
   choices: ['space'],
-  stimulus: "<div style='margin: auto 0'><p>Each question will be a yes or no question.<p>You will only be given 2 seconds to answer the questions -- so please try to respond as fast as you can.<br>Place your fingers on Y (for yes) and N (for no) to prepare.</div>",
+  stimulus: "<div style='margin: auto 0'><p>The questions you will see will always be a yes or no question.<p>You will only be given 2 seconds to answer the questions -- so please try to respond as fast as you can.<br>Place your fingers on Y (for yes) and N (for no) to prepare.</div>",
   prompt: "Press SPACE to begin.",
   data: {
       subj_id: subj_name,
@@ -128,7 +128,7 @@ let intro_trial = function(trial_num, adjective){
     stimulus: "Each sound was " + adjective + ".<br><br>Do you agree?<br><br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
-    trial_duration: 2000,
+    trial_duration: 4000,
     data: {
         subj_id: subj_name,
         test_part: 'resp_trial',
@@ -143,7 +143,7 @@ let test_prompt = {
   type: 'html-keyboard-response',
   stimulus: '<div>Did you just hear this sound?<p>Get ready...</div>',
   choices: jsPsych.NO_KEYS,
-  trial_duration: 2000,
+  trial_duration: 1000,
   data: {
       subj_id: subj_name,
       test_part: 'fixation'
@@ -156,7 +156,7 @@ let resp_trial = function(trial_num, freq, condition){
     stimulus: "Did you just hear this sound?<br><br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
-    trial_duration: 2000,
+    trial_duration: 4000,
     data: {
         subj_id: subj_name,
         test_part: 'resp_trial',

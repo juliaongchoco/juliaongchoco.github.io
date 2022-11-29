@@ -21,12 +21,22 @@ jsPsych.plugins["jo-play-tone"] = (function() {
         type: jsPsych.plugins.parameterType.STRING, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
         default: undefined
       },
+      show_prompt: {
+        type: jsPsych.plugins.parameterType.BOOL, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
+        default: undefined
+      },
+      adjective: {
+        type: jsPsych.plugins.parameterType.STRING, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
+        default: undefined
+      },
     }
   }
 
   plugin.trial = function(display_element, trial) {
 
-    // display_element.innerHTML = "<img src='images/soundIcon.png'></img>"
+    if (trial.show_prompt){
+      display_element.innerHTML = '<div><span style="font-size:2vw">Each sound is ' + trial.adjective + '.</span></div>'
+    }
 
     console.log(trial.freq, trial.condition)
 

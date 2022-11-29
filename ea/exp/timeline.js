@@ -5,12 +5,36 @@ let instructions1 = {
     type: 'jo-html-keyboard-response',
     wait_duration: 1000,
     choices: ['space'],
-    stimulus: "<div style='margin: auto 0'><p>In this experiment, you will read a sentence about some sounds.</br> Then you will be asked whether you agree with a sentence.</br>Then you will be asked some additional questions.</div>",
-    prompt: "Press SPACE to begin.",
+    stimulus: "<div style='margin: auto 0'><p>In the main experiment, you will hear different sounds.</div>",
+    prompt: "Press SPACE for a sample.",
     data: {
         subj_id: subj_name,
         test_part: 'instruct_prompt'
     }
+};
+
+let instructions2 = {
+  type: 'jo-html-keyboard-response',
+  wait_duration: 1000,
+  choices: ['space'],
+  stimulus: "<div style='margin: auto 0'><p>You will then read sentences describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with these opinions.<br>Then an additional question will follow.</div>",
+  prompt: "Press SPACE to continue.",
+  data: {
+      subj_id: subj_name,
+      test_part: 'instruct_prompt'
+  }
+};
+
+let instructions3 = {
+  type: 'jo-html-keyboard-response',
+  wait_duration: 1000,
+  choices: ['space'],
+  stimulus: "<div style='margin: auto 0'><p>Each question will be a yes or no question.<p>You will only be given 2 seconds to answer the questions -- so please try to respond as fast as you can.<br>Place your fingers on Y (for yes) and N (for no) to prepare.</div>",
+  prompt: "Press SPACE to begin.",
+  data: {
+      subj_id: subj_name,
+      test_part: 'instruct_prompt'
+  }
 };
 
 // let begin_expt_prompt = {
@@ -43,12 +67,14 @@ let instructions1 = {
 //   return block;
 // };
 
-let key_trial = function(freq, condition){
+let key_trial = function(freq, condition, show_prompt, adjective){
   var block = {
     type: 'jo-play-tone',
     freq: freq,
     duration: 250,
     condition: condition,
+    show_prompt: show_prompt,
+    adjective: adjective,
     data: {
         subj_id: subj_name,
         test_part: 'key_trial',
@@ -84,7 +110,7 @@ let test_audio = {
 let intro_prompt = function(adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: '<div>Each tone is ' + adjective + '.</div>',
+    stimulus: '<div><span style="font-size:2vw">Each sound is ' + adjective + '.</div>',
     choices: jsPsych.NO_KEYS,
     trial_duration: 2000,
     data: {
@@ -96,16 +122,18 @@ let intro_prompt = function(adjective){
   return block;
 };
 
-let intro_trial = function(adjective){
+let intro_trial = function(trial_num, adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Each tone was " + adjective + ".<br>Y=YES, N=NO",
+    stimulus: "Each sound was " + adjective + ".<br><br>Do you agree?<br><br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
+    trial_duration: 2000,
     data: {
         subj_id: subj_name,
         test_part: 'resp_trial',
-        adjective: adjective
+        adjective: adjective,
+        trial_num: trial_num
     },
   }
   return block;
@@ -113,7 +141,7 @@ let intro_trial = function(adjective){
 
 let test_prompt = {
   type: 'html-keyboard-response',
-  stimulus: '<div>Did you just hear this tone?</div>',
+  stimulus: '<div>Did you just hear this sound?<p>Get ready...</div>',
   choices: jsPsych.NO_KEYS,
   trial_duration: 2000,
   data: {
@@ -122,17 +150,19 @@ let test_prompt = {
   }
 };
 
-let resp_trial = function(freq, condition){
+let resp_trial = function(trial_num, freq, condition){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "Did you just hear this tone?<br>Y=YES, N=NO",
+    stimulus: "Did you just hear this sound?<br><br>Y=YES, N=NO",
     choices: ['y', 'n'],
     response_ends_trial: true,
+    trial_duration: 2000,
     data: {
         subj_id: subj_name,
         test_part: 'resp_trial',
         freq: freq,
-        condition: condition
+        condition: condition,
+        trial_num: trial_num
     },
     on_finish: function(data){
       data.is_correct = false
@@ -147,4 +177,13 @@ let resp_trial = function(freq, condition){
     }
   }
   return block;
+};
+
+let check_volume = {
+  type: 'jo-adjust-volume',
+  stimulus: 'images/FULLBEAT.mp3',
+  choices: ['r'],
+  prompt: '<p>You will now listen to a continuous sequence of tones that will keep playing on loop.<p><b>During the sequence, please adjust your volume to a comfortable level</b> -- <br>such that you are okay with not changing this anymore throughout the whole experiment.</p><p>Press <u>RETURN</u> to hear the tones.<div id="countdown"></div>',
+  response_ends_trial: true,
+  trial_ends_after_audio: true,
 };

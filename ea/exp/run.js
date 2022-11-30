@@ -72,7 +72,8 @@ for (i=0; i<conditions.length; i++){
   }
 
   timeline.push(intro_trial(i, adjective));
-
+  timeline.push(blank);
+  
   timeline.push(test_prompt);
 
   // PLAY TEST

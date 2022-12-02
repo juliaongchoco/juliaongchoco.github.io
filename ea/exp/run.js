@@ -54,7 +54,7 @@ function getAvg(grades) {
 
 for (i=0; i<conditions.length; i++){
 
-  main_tone_id = get_random_value(range(13, 95));
+  main_tone_id = get_random_value(range(25, 95));
   other_tones_id = [main_tone_id-tone_distance, main_tone_id+tone_distance];
   foil_tone_id = main_tone_id-foil_distance;
 

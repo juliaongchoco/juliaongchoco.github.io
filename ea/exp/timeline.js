@@ -13,11 +13,23 @@ let instructions1 = {
     }
 };
 
-let instructions2 = {
+let instructions2a = {
   type: 'jo-html-keyboard-response',
   wait_duration: 1000,
   choices: ['space'],
-  stimulus: "<div style='margin: auto 0'><p>In a trial, you will then read a sentence describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with this opinion.<br>Then an additional question will follow.<br>This additional question will be a <b>memory</b> question, so try to pay attention to the sounds as best as you can.</div>",
+  stimulus: "<div style='margin: auto 0'><p>In a trial, you will then read a sentence describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with this opinion.</div>",
+  prompt: "Press SPACE to continue.",
+  data: {
+      subj_id: subj_name,
+      test_part: 'instruct_prompt'
+  }
+};
+
+let instructions2b = {
+  type: 'jo-html-keyboard-response',
+  wait_duration: 1000,
+  choices: ['space'],
+  stimulus: "<div style='margin: auto 0'><p>Then an additional question will follow.<br>This additional question will be a <b>memory</b> question, so try to pay attention to the sounds as best as you can.</div>",
   prompt: "Press SPACE to continue.",
   data: {
       subj_id: subj_name,

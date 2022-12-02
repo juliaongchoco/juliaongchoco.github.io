@@ -15,10 +15,11 @@ timeline.push({
 if (show_boilerplate) {
     // timeline.push(consent);
     timeline.push(welcome_prompt);
-    // timeline.push(check_volume);
+    timeline.push(check_volume);
     timeline.push(instructions1);
     timeline.push(key_trial(440, "demo", false, ""));
-    timeline.push(instructions2);
+    timeline.push(instructions2a);
+    timeline.push(instructions2b);
     timeline.push(instructions3);
     // timeline.push(begin_expt_prompt);
 }

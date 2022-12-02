@@ -15,7 +15,7 @@ timeline.push({
 if (show_boilerplate) {
     // timeline.push(consent);
     timeline.push(welcome_prompt);
-    timeline.push(check_volume);
+    // timeline.push(check_volume);
     timeline.push(instructions1);
     timeline.push(key_trial(440, "demo", false, ""));
     timeline.push(instructions2);

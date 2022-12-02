@@ -125,7 +125,7 @@ let intro_prompt = function(adjective){
 let intro_trial = function(trial_num, adjective){
   var block = {
     type: 'html-keyboard-response',
-    stimulus: "<span style='font-size:2vw'>Each sound was " + adjective + ".</span><br><br>Do you agree?<br><br>A=YES, L=NO",
+    stimulus: "<span style='font-size:2vw'>Each sound was " + adjective + ".<br><br>Do you agree?<br><br>A=YES, L=NO",
     choices: ['a', 'l'],
     response_ends_trial: true,
     trial_duration: 7000,

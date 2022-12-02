@@ -17,7 +17,7 @@ let instructions2 = {
   type: 'jo-html-keyboard-response',
   wait_duration: 1000,
   choices: ['space'],
-  stimulus: "<div style='margin: auto 0'><p>In a trial, you will then read a sentence describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with this opinion.<br>Then an additional question will follow.<br>This additional question will be a <b>memory</b> question, so try to pay attention to all the sounds as best as you can.</div>",
+  stimulus: "<div style='margin: auto 0'><p>In a trial, you will then read a sentence describing a subjective opinion about these sounds.<br>Your task is to say whether you agree with this opinion.<br>Then an additional question will follow.<br>This additional question will be a <b>memory</b> question, so try to pay attention to the sounds as best as you can.</div>",
   prompt: "Press SPACE to continue.",
   data: {
       subj_id: subj_name,
@@ -29,7 +29,7 @@ let instructions3 = {
   type: 'jo-html-keyboard-response',
   wait_duration: 1000,
   choices: ['a', 'l'],
-  stimulus: "<div style='margin: auto 0'><p>The questions you will see will always be a yes or no question.  To indicate your response, you must press the <b>A KEY</b> for YES, and the <b>L KEY</b> for NO.<p>You will only be given 2 seconds to answer the questions -- so please try to respond as fast as you can.<br>Place your fingers on A (for yes) and L (for no) to prepare.</div>",
+  stimulus: "<div style='margin: auto 0'><p>The questions you will see will always be a yes or no question.  To indicate your response, you must press the <b>A KEY</b> for YES, and the <b>L KEY</b> for NO.<p>You will only be given 5 seconds to answer the questions -- so please try to respond as fast as you can.<br>Place your fingers on A (for yes) and L (for no) to prepare.</div>",
   prompt: "Press ONE OF THE POSSIBLE RESPONSE KEYS to begin.",
   data: {
       subj_id: subj_name,

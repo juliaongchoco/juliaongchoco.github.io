@@ -35,7 +35,7 @@ jsPsych.plugins["jo-play-tone"] = (function() {
   plugin.trial = function(display_element, trial) {
 
     if (trial.show_prompt){
-      display_element.innerHTML = '<div><span style="font-size:2vw">Each sound is ' + trial.adjective + '.</span></div>'
+      display_element.innerHTML = '<div><span style="font-size:2vw">Every sound is ' + trial.adjective + '.</span></div>'
     }
 
     console.log(trial.freq, trial.condition)

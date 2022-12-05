@@ -1,5 +1,17 @@
 let timeline = [];
 
+let consent_form = {
+  type: 'image-keyboard-response',
+  stimulus: 'images/consent.jpg',
+  choices: ['y'],
+  prompt: 'Press the Y KEY to consent.',
+  response_ends_trial: true,
+  data: {
+      subj_id: subj_name,
+      test_part: 'consent'
+  }
+};
+
 // SPONTANEITY TEST
 let instructions1 = {
     type: 'jo-html-keyboard-response',

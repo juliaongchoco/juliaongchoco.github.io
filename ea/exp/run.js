@@ -13,7 +13,7 @@ timeline.push({
     }
 });
 if (show_boilerplate) {
-    // timeline.push(consent);
+    timeline.push(consent_form);
     timeline.push(welcome_prompt);
     timeline.push(check_volume);
     timeline.push(instructions1);

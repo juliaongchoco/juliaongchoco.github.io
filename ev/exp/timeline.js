@@ -4,7 +4,7 @@ let consent_form = {
   type: 'image-keyboard-response',
   stimulus: 'images/consent.jpg',
   choices: ['y'],
-  prompt: 'Press the Y KEY to consent.',
+  prompt: '<br><br>Press the Y KEY to consent.',
   response_ends_trial: true,
   data: {
       subj_id: subj_name,

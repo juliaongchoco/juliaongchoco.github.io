@@ -26,5 +26,6 @@ included_subjects = unique(ad$subj_id[ad$test_part=='debrief'])
 test_data = ad %>% filter(test_part=='resp_trial') %>%
   select(subj_id, freq, duration, condition, is_correct)
 test_data$is_correct = as.logical(as.character(test_data$is_correct))
-test_data %>% group_by(subj_id, condition) %>% summarize(mean=mean(is_correct))
+test_data %>% filter(condition %in% c("avg", "right", "wrong")) %>% 
+                       group_by(subj_id, condition) %>% summarize(mean=mean(is_correct))
 
